@@ -1,0 +1,72 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color:#fff;  
+  }
+  .btn-search:hover{
+    background-color: #fe424d;
+    color:#fff;  
+  }
+
+  .btn-search i{
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  #theme-toggle {
+    cursor: pointer;
+    border: 1px solid #fe424d;
+    color: #fe424d;
+    transition: all 0.3s;
+  }
+
+  #theme-toggle:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNavAltMarkup"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings"><b>Explore</b></a>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search destinations" aria-label="Search"/>
+            <button class="btn btn-search" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>Search 
+            </button>
+          </form>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <% if(!currUser){ %>
+            <a class="nav-link" href="/signup"><b>Signup</b></a>
+            <a class="nav-link" href="/login"><b>Login</b></a>
+          <% } %>
+          <% if(currUser){ %>
+            <a class="nav-link" href="/logout">Logout</a>
+          <% } %>
+          <% if (currUser) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/my-bookings">
+                <i class="fa-solid fa-calendar-check me-1"></i> My Bookings
+              </a>
+            </li>
+          <% } %>
+          <!-- Light/Dark Mode Toggle -->
+          <button id="theme-toggle" class="btn btn-outline-secondary ms-3">🌙</button>
+        </div>
+      </div>
+  </nav>

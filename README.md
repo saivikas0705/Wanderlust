@@ -1,2 +1,1 @@
-# Wanderlust
-Wanderlust is a vacational rental web app
+This is my Airbnb replica MERN stack project (WanderLust)...

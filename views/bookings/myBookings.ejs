@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">My Bookings</h2>
+
+  <% if (bookings.length === 0) { %>
+    <p class="text-center">You haven’t booked any stays yet.</p>
+  <% } else { %>
+    <div class="row">
+      <% bookings.forEach(b => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow">
+            <img src="<%= b.listing.image.url %>" class="card-img-top" alt="<%= b.listing.title %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= b.listing.title %></h5>
+              <p><strong>Amount Paid:</strong> ₹<%= b.amount %></p>
+              <p><strong>Status:</strong> <%= b.paymentStatus %></p>
+              <p><strong>Date:</strong> <%= b.createdAt.toDateString() %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
